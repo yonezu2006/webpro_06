@@ -53,8 +53,8 @@ app.get("/janken", (req, res) => {
   else if (cpu == 'パー' && hand == 'パー') judgement = 'あいこ';
   else if (cpu == 'パー' && hand == 'グー') judgement = '負け';
 
-  if ( judgement = '勝ち' ) win += 1;
-  
+  if ( judgement == '勝ち' ) win += 1;
+
   total += 1;
 
   const display = {
