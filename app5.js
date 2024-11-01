@@ -39,19 +39,21 @@ app.get("/janken", (req, res) => {
   else cpu = 'パー';
 
   total += 1;
-  
+
   // ここに勝敗の判定を入れる
 
   let judgement = '';
-  if (cpu == 'グー' , hand == 'パー') judgement = '勝ち';
-  else if (cpu == 'グー' , hand == 'グー') judgement = 'あいこ';
-  else if (cpu == 'グー' , hand == 'チョキ') judgement = '負け';
-  else if (cpu == 'チョキ' , hand == 'グー') judgement = '勝ち';
-  else if (cpu == 'チョキ' , hand == 'チョキ') judgement = 'あいこ';
-  else if (cpu == 'チョキ' , hand == 'パー') judgement = '負け';
-  else if (cpu == 'パー' , hand == 'チョキ') judgement = '勝ち';
-  else if (cpu == 'パー' , hand == 'パー') judgement = 'あいこ';
-  else if (cpu == 'パー' , hand == 'グー') judgement = '負け';
+  if (cpu == 'グー' && hand == 'パー') judgement = '勝ち';
+  else if (cpu == 'グー' && hand == 'グー') judgement = 'あいこ';
+  else if (cpu == 'グー' && hand == 'チョキ') judgement = '負け';
+
+  else if (cpu == 'チョキ' && hand == 'グー') judgement = '勝ち';
+  else if (cpu == 'チョキ' && hand == 'チョキ') judgement = 'あいこ';
+  else if (cpu == 'チョキ' && hand == 'パー') judgement = '負け';
+
+  else if (cpu == 'パー' && hand == 'チョキ') judgement = '勝ち';
+  else if (cpu == 'パー' && hand == 'パー') judgement = 'あいこ';
+  else if (cpu == 'パー' && hand == 'グー') judgement = '負け';
 
  
   if (judgement == '勝ち') win += 1;
