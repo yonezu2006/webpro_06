@@ -38,8 +38,21 @@ app.get("/janken", (req, res) => {
   else if( num==2 ) cpu = 'チョキ';
   else cpu = 'パー';
 
+  const sessionKey = "accesed";
+  const sessionValue = true;
+
+  if (!sessionStorage.getItem(sessionKey)) {
+	  //1回だけ実行させたい処理を書く（今回はローディングの処理）
+	  setTimeout(function(){
+  	win = 0;
+    total = 0;
+	  },2000);
+
+	  //sessionStorageに保存
+	  sessionStorage.setItem(sessionKey, sessionValue);
+  }
+
   // ここに勝敗の判定を入れる
-  for (;;){
     let judgement = '';
     if (cpu == 'グー' && hand == 'パー') judgement = '勝ち';
     else if (cpu == 'グー' && hand == 'グー') judgement = 'あいこ';
@@ -65,7 +78,7 @@ app.get("/janken", (req, res) => {
       total: total
     }
     res.render( 'janken', display );
-  }
+  
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
