@@ -38,9 +38,6 @@ app.get("/janken", (req, res) => {
   else if( num==2 ) cpu = 'チョキ';
   else cpu = 'パー';
 
-  Number = 0;
-  
-
   // ここに勝敗の判定を入れる
 
   let judgement = '';
