@@ -38,19 +38,7 @@ app.get("/janken", (req, res) => {
   else if( num==2 ) cpu = 'チョキ';
   else cpu = 'パー';
 
-  const sessionKey = "accesed";
-  const sessionValue = true;
-
-  if (!sessionStorage.getItem(sessionKey)) {
-	  //1回だけ実行させたい処理を書く（今回はローディングの処理）
-	  setTimeout(function(){
-  	win = 0;
-    total = 0;
-	  },2000);
-
-	  //sessionStorageに保存
-	  sessionStorage.setItem(sessionKey, sessionValue);
-  }
+  if(win == 0 && total ==0) total = 0; 
 
   // ここに勝敗の判定を入れる
     let judgement = '';
