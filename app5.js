@@ -39,32 +39,33 @@ app.get("/janken", (req, res) => {
   else cpu = 'パー';
 
   // ここに勝敗の判定を入れる
+  for (;;){
+    let judgement = '';
+    if (cpu == 'グー' && hand == 'パー') judgement = '勝ち';
+    else if (cpu == 'グー' && hand == 'グー') judgement = 'あいこ';
+    else if (cpu == 'グー' && hand == 'チョキ') judgement = '負け';
 
-  let judgement = '';
-  if (cpu == 'グー' && hand == 'パー') judgement = '勝ち';
-  else if (cpu == 'グー' && hand == 'グー') judgement = 'あいこ';
-  else if (cpu == 'グー' && hand == 'チョキ') judgement = '負け';
+    else if (cpu == 'チョキ' && hand == 'グー') judgement = '勝ち';
+    else if (cpu == 'チョキ' && hand == 'チョキ') judgement = 'あいこ';
+    else if (cpu == 'チョキ' && hand == 'パー') judgement = '負け';
+  
+    else if (cpu == 'パー' && hand == 'チョキ') judgement = '勝ち';
+    else if (cpu == 'パー' && hand == 'パー') judgement = 'あいこ';
+    else if (cpu == 'パー' && hand == 'グー') judgement = '負け';
 
-  else if (cpu == 'チョキ' && hand == 'グー') judgement = '勝ち';
-  else if (cpu == 'チョキ' && hand == 'チョキ') judgement = 'あいこ';
-  else if (cpu == 'チョキ' && hand == 'パー') judgement = '負け';
+    if ( judgement == '勝ち' ) win += 1;
 
-  else if (cpu == 'パー' && hand == 'チョキ') judgement = '勝ち';
-  else if (cpu == 'パー' && hand == 'パー') judgement = 'あいこ';
-  else if (cpu == 'パー' && hand == 'グー') judgement = '負け';
+    total += 1;
 
-  if ( judgement == '勝ち' ) win += 1;
-
-  total += 1;
-
-  const display = {
-    your: hand,
-    cpu: cpu,
-    judgement: judgement,
-    win: win,
-    total: total
+    const display = {
+      your: hand,
+      cpu: cpu,
+      judgement: judgement,
+      win: win,
+      total: total
+    }
+    res.render( 'janken', display );
   }
-  res.render( 'janken', display );
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
