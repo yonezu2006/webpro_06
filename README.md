@@ -30,7 +30,7 @@ if -->|no| loose
 loose --> end1
 ```
 
-'''mermaid
+```mermaid
 flowchart TD;
 開始　--> 終了;
-'''
+```
