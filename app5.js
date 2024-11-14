@@ -27,6 +27,9 @@ app.get("/luck", (req, res) => {
   res.render( 'luck', {number:num, luck:luck} );
 });
 
+let win = 0;
+let total = 0;
+
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
   let win = Number( req.query.win );
@@ -64,6 +67,39 @@ app.get("/janken", (req, res) => {
       total: total
     }
     res.render( 'janken', display );
+  
+});
+
+app.get("/unsei", (req, res) => {
+  let month = req.query.month;
+  console.log( {month});
+  const num = Math.floor( Math.random() * 12 + 1 );
+ 
+
+  // ここに勝敗の判定を入れる
+    let kiti = '';
+    let unsei = Math.abs(month - num);
+
+    if (unsei == 0) kiti = '今日の運勢１位！！';
+    else if (unsei == 1) kiti = '今日の運勢２位！';
+    else if (unsei == 2) kiti = '今日の運勢３位！';
+    else if (unsei == 3) kiti = '今日の運勢４位！';
+    else if (unsei == 4) kiti = '今日の運勢５位';
+    else if (unsei == 5) kiti = '今日の運勢６位';
+    else if (unsei == 6) kiti = '今日の運勢７位';
+    else if (unsei == 7) kiti = '今日の運勢８位';
+    else if (unsei == 8) kiti = '今日の運勢９位';
+    else if (unsei == 9) kiti = '今日の運勢１０位';
+    else if (unsei == 10) kiti = '今日の運勢１１位…';
+    else if (unsei == 11) kiti = '今日の運勢最下位…';
+
+    const display = {
+      your: month,
+      kiti: kiti,
+    }
+
+
+    res.render( 'unsei', display );
   
 });
 

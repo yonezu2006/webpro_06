@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>今日の運勢</title>
+</head>
+<body>
+    <p>あなたの誕生月は<%= your %>です．</p>
+    <p>結果：<%= kiti %></p>
+    <hr>
+    <form action="/janken">
+        <input type="text" name="un" required>
+        <label for="un">あなたの誕生月は？（半角数字のみ）</label>
+        <input type="submit" values="誕生月別　今日の運勢">
+    </form>   
+</body>
+</html>
