@@ -77,6 +77,8 @@ app.get("/unsei", (req, res) => {
  
 
   // ここに勝敗の判定を入れる
+    let mon = '';
+    
     if (month =='1') mon = 1;
     else if (month == '2') mon = 2;
     else if (month == '3') mon = 3;
@@ -89,7 +91,7 @@ app.get("/unsei", (req, res) => {
     else if (month == '10') mon = 10;
     else if (month == '11') mon = 11;
     else if (month == '12') mon = 12;
-    
+
     let kiti = '';
     let unsei = Math.abs(mon - num);
 
