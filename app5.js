@@ -27,8 +27,8 @@ app.get("/luck", (req, res) => {
   res.render( 'luck', {number:num, luck:luck} );
 });
 
-let win = 0;
-let total = 0;
+win = 0;
+total = 0;
 
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
