@@ -77,8 +77,21 @@ app.get("/unsei", (req, res) => {
  
 
   // ここに勝敗の判定を入れる
+    if (month =='1') mon = 1;
+    else if (month == '2') mon = 2;
+    else if (month == '3') mon = 3;
+    else if (month == '4') mon = 4;
+    else if (month == '5') mon = 5;
+    else if (month == '6') mon = 6;
+    else if (month == '7') mon = 7;
+    else if (month == '8') mon = 8;
+    else if (month == '9') mon = 9;
+    else if (month == '10') mon = 10;
+    else if (month == '11') mon = 11;
+    else if (month == '12') mon = 12;
+    
     let kiti = '';
-    let unsei = Math.abs(month - num);
+    let unsei = Math.abs(mon - num);
 
     if (unsei == 0) kiti = '今日の運勢１位！！';
     else if (unsei == 1) kiti = '今日の運勢２位！';
