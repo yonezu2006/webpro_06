@@ -118,6 +118,9 @@ app.get("/unsei", (req, res) => {
   
 });
 
+win = 0;
+total = 0;
+
 app.get("/attimuitehoi", (req, res) => {
   let hand = req.query.hand;
   //let win = Number( req.query.win );
