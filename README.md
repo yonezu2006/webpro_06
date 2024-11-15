@@ -91,3 +91,28 @@ un11 --> end1
 if -->|11| un12
 un12 --> end1
 ```
+
+## あっち向いホイをするプログラム
+
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+view/attimuitehoi.ejs | あっち向いてホイの開始画面
+
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+if{"コンピュータの向きを当てられたか"}
+win["勝ち"]
+loose["負け"]
+
+start --> if
+if -->|同じ向きを指した| win
+win --> end1
+if -->|他の向きを指した| loose
+loose --> end1
+```
+
