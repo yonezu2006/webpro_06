@@ -32,8 +32,8 @@ total = 0;
 
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
-  let win = Number( req.query.win );
-  let total = Number( req.query.total );
+  //let win = Number( req.query.win );
+  //let total = Number( req.query.total );
   console.log( {hand, win, total});
   const num = Math.floor( Math.random() * 3 + 1 );
   let cpu = '';
@@ -78,7 +78,7 @@ app.get("/unsei", (req, res) => {
 
   // ここに勝敗の判定を入れる
     let mon = '';
-    
+
     if (month =='1') mon = 1;
     else if (month == '2') mon = 2;
     else if (month == '3') mon = 3;
@@ -115,6 +115,42 @@ app.get("/unsei", (req, res) => {
 
 
     res.render( 'unsei', display );
+  
+});
+
+app.get("/attimuitehoi", (req, res) => {
+  let hand = req.query.hand;
+  //let win = Number( req.query.win );
+  //let total = Number( req.query.total );
+  console.log( {hand, win, total});
+  const num = Math.floor( Math.random() * 4 + 1 );
+  let cpu = '';
+  if( num==1 ) cpu = '上';
+  else if( num==2 ) cpu = '下';
+  else if( num==3 ) cpu = '右';
+  else cpu = '左'; 
+
+  // ここに勝敗の判定を入れる
+    let judgement = '';
+    if (cpu == '左' && hand == '左') judgement = '勝ち';
+    else if (cpu == '右' && hand == '右') judgement = '勝ち';
+    else if (cpu == '上' && hand == '上') judgement = '勝ち';
+    else if (cpu == '下' && hand == '下') judgement = '勝ち';
+    
+    else judgement = '負け';
+
+    if ( judgement == '勝ち' ) win += 1;
+
+    total += 1;
+
+    const display = {
+      your: hand,
+      cpu: cpu,
+      judgement: judgement,
+      win: win,
+      total: total
+    }
+    res.render( 'attimuitehoi', display );
   
 });
 
