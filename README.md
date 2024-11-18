@@ -1,18 +1,119 @@
 # webpro_06
-2024/10/29
+2024/11/18
 
-## このプログラムについて
-
-## ファイル名 
+## 挨拶を表示するプログラム 
 
 ファイル名 | 説明
 -|-
 app5.js | プログラム本体
-public/janken.html | じゃんけんの開始画面
+view/show.ejs | 表示画面
 
-```javascript
-console.log( 'Hello' );
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/show.ejsにアクセスする
+
+挨拶を定義してURLを開くとHello,WorldとBon Jourと出力されるものである.
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+do["挨拶を表示"]
+
+start --> do
+do --> end1
 ```
+
+## 挨拶を表示するプログラム その２
+
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+view/show.ejs | 表示画面
+
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/show.ejsにアクセスする
+
+URLを開くとHello,WorldとBon Jourと出力されるものである.
+一つ前の挨拶を表示するプログラムと違うのは,挨拶を定義せずに直接代入しているところである.
+
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+do["挨拶を表示"]
+
+start --> do
+do --> end1
+```
+
+## アイコンを表示するプログラム
+
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+view/icon.ejs | 表示画面
+
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/icon.ejsにアクセスする
+
+URLを開くとAppleのロゴが出力されるものである.
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+do["アイコンを表示"]
+
+start --> do
+do --> end1
+```
+
+## 運勢を表示するプログラム
+
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+view/luck.ejs | 表示画面
+
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/luck.ejsにアクセスする
+
+URLを開くとランダムに運勢が出力されるものである.
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+if["ランダム関数の数値が"]
+un1["大吉"]
+un2["中吉"]
+
+
+
+start --> if
+if --> |1| un1
+un1 --> end1
+if --> |2| un2
+un2 --> end1
+```
+
+## じゃんけんをするプログラム
+
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+view/janken.ejs | じゃんけんの開始画面
+
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/janken.ejsにアクセスする
+1.自分の手を入力する
+
+URLを開いて自分の手を入力するとコンピュータとのじゃんけん結果が出力されるものである.
 
 ```mermaid
 flowchart TD;
@@ -30,11 +131,6 @@ if -->|no| loose
 loose --> end1
 ```
 
-```mermaid
-flowchart TD;
-開始　--> 終了;
-```
-
 ## 運勢を表示するプログラム 
 
 ファイル名 | 説明
@@ -42,7 +138,11 @@ flowchart TD;
 app5.js | プログラム本体
 views/unsei.ejs | 今日の運勢の開始画面
 
-誕生月を入力すると今日の運勢を出力するものである
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/unsei.ejsにアクセスする
+1.誕生月を半角数字で入力する
+
+誕生月を入力すると今日の運勢を出力するものである.
 前に制作したものと違い,誕生月を入力することで個人に特化しているように見える.
 
 ```mermaid
@@ -99,8 +199,12 @@ un12 --> end1
 app5.js | プログラム本体
 view/attimuitehoi.ejs | あっち向いてホイの開始画面
 
+1. app5.js を起動する
+1. Webブラウザでlocalhost:8080/view/attimuitehoi.ejsにアクセスする
+1.向く向きを入力する
+
 コンピュータが上下左右どの向きを向くのか当てるゲーム。
-上下左右を入力するとコンピュータの向きと同じか判断して同じなら「勝ち」違うのなら「負け」を出力する
+上下左右を入力するとコンピュータの向きと同じか判断して同じなら「勝ち」違うのなら「負け」を出力する。
 
 ```mermaid
 flowchart TD;
