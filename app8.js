@@ -131,23 +131,26 @@ app.delete("/bbs/:id", (req,res) => {
     res.json( {test: "DELETE /BBS/" + req.params.id });
 });
 
-let notes = [];
+let notes = []; 
 
-app.post("/notes/add", (req,res) => {
-  const name = req.body.name;
-  const message = req.body.message;
-  notes.push({id:notes.length + 1,name,message});
-  res.json({succces:true,notes});
+// メモの追加
+app.post("/notes/add", (req, res) => {
+  const title = req.body.title;
+  const content = req.body.content;
+  notes.push({ id: notes.length + 1, title, content });
+  res.json({ success: true, notes });
 });
 
-app.get("/notes", (req,res) =>{
-  res.json({success:true, notes });
+// メモの一覧を取得
+app.get("/notes", (req, res) => {
+  res.json({ success: true, notes });
 });
 
+// メモの削除
 app.post("/notes/delete", (req, res) => {
   const id = Number(req.body.id);
   notes = notes.filter(note => note.id !== id);
-  res.json({success: true, notes});
+  res.json({ success: true, notes });
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

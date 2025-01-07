@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>メモ帳</title>
-    <script src="./memo.js" defer></script>
-    <link rel="stylesheet" href="./memo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>簡易メモ帳</title>
+  <script src="./memo.js" defer></script>
+  <link rel="stylesheet" href="./bbs.css">
 </head>
 <body>
-    <div id="memo"></div>
-    <h1>メモ帳</h1>
-    <div>
-        <label for="name">タイトル：</label>
-        <input type="text" id="name">
-        <label for="name">メモ内容：</label>
-        <input type="text" id="message">
-        <button type="button" id="post">追加</button>
-    </div>
-    <div id="memo_list"></div>
+  <h1>簡易メモ帳</h1>
+  <div>
+    <label for="title">タイトル：</label>
+    <input type="text" id="title">
+    <label for="content">内容：</label>
+    <input type="text" id="content">
+    <button type="button" id="add-memo">追加</button>
+  </div>
+  <div id="memo-list"></div>
 </body>
 </html>

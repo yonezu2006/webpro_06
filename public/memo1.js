@@ -4,12 +4,12 @@ const memoList = document.querySelector("#memo-list");
 
 // メモを追加
 document.querySelector("#add-memo").addEventListener("click", () => {
-  const title = document.querySelector("#title").value;
-  const content = document.querySelector("#content").value;
+  const name = document.querySelector("#name").value;
+  const message = document.querySelector("#message").value;
 
   const params = {
     method: "POST",
-    body: JSON.stringify({ title, content }),
+    body: JSON.stringify({ name, message }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -19,8 +19,8 @@ document.querySelector("#add-memo").addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
       console.log("メモ追加成功:", data);
-      document.querySelector("#title").value = "";
-      document.querySelector("#content").value = "";
+      document.querySelector("#name").value = "";
+      document.querySelector("#message").value = "";
       loadMemos();
     })
     .catch(err => console.error("エラー:", err));
@@ -36,18 +36,18 @@ function loadMemos() {
         const memoItem = document.createElement("div");
         memoItem.className = "memo-item";
 
-        const title = document.createElement("h3");
-        title.textContent = note.title;
+        const name = document.createElement("h3");
+        name.textContent = note.name;
 
-        const content = document.createElement("p");
-        content.textContent = note.content;
+        const message = document.createElement("p");
+        message.textContent = note.message;
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "削除";
         deleteButton.addEventListener("click", () => deleteMemo(note.id));
 
-        memoItem.appendChild(title);
-        memoItem.appendChild(content);
+        memoItem.appendChild(name);
+        memoItem.appendChild(message);
         memoItem.appendChild(deleteButton);
 
         memoList.appendChild(memoItem);
