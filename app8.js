@@ -7,6 +7,7 @@ let bbs = [];  // 本来はDBMSを使用するが，今回はこの変数にデ�
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
@@ -128,6 +129,25 @@ app.put("/bbs/:id", (req,res) => {
 app.delete("/bbs/:id", (req,res) => {
     console.log( "DELETE /BBS/" + req.params.id );
     res.json( {test: "DELETE /BBS/" + req.params.id });
+});
+
+let notes = [];
+
+app.post("/notes/add", (req,res) => {
+  const name = req.body.name;
+  const message = req.body.message;
+  notes.push({id:notes.length + 1,name,message});
+  res.json({succces:true,notes});
+});
+
+app.get("/notes", (req,res) =>{
+  res.json({success:true, notes });
+});
+
+app.post("/notes/delete", (req, res) => {
+  const id = Number(req.body.id);
+  notes = notes.filter(note => note.id !== id);
+  res.json({success: true, notes});
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
